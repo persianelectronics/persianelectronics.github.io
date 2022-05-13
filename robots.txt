@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://chadhgy.github.io/sitemap.xml
