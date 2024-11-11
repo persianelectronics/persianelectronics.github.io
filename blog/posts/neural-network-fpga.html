@@ -20,16 +20,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Projects | Parsa  Majidi</title>
+    <title>blog | Parsa  Majidi</title>
     <meta name="author" content="Parsa  Majidi">
     <meta name="description" content="Parsa's personal website.
 ">
     <meta name="keywords" content="machine-learning-engineer, machine-learning, deep-learning, artificial-intelligence">
     <!-- OpenGraph -->
     <meta property="og:site_name" content="Parsa  Majidi">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Parsa  Majidi | Projects">
-    <meta property="og:url" content="https://persianelectronics.github.io/publications/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Parsa  Majidi | blog">
+    <meta property="og:url" content="https://persianelectronics.github.io/blog/">
     <meta property="og:description" content="Parsa's personal website.
 ">
     <meta property="og:image" content="/assets/img/prof_pic.png">
@@ -37,7 +37,7 @@
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Projects">
+    <meta name="twitter:title" content="blog">
     <meta name="twitter:description" content="Parsa's personal website.
 ">
     <meta name="twitter:image" content="/assets/img/prof_pic.png">
@@ -51,9 +51,14 @@
             "@type": "Person",
             "name": "Parsa  Majidi"
         },
-        "url": "https://persianelectronics.github.io/publications/",
-        "@type": "WebSite",
-        "description": "Parsa's personal website."
+        "url": "https://persianelectronics.github.io/blog/",
+        "@type": "BlogPosting",
+        "description": "Parsa's personal website.
+",
+        "headline": "blog",
+        "sameAs": ["https://github.com/parsamajidi21", "https://www.linkedin.com/in/parsamajidi"],
+        "name": "Parsa  Majidi",
+        "@context": "https://schema.org"
     }
     </script>
 
@@ -79,7 +84,7 @@
 <!-- Styles -->
 
     <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-    <link rel="canonical" href="https://persianelectronics.github.io/publications/">
+    <link rel="canonical" href="https://persianelectronics.github.io/blog/">
 
     <!-- Dark Mode -->
     
@@ -116,16 +121,15 @@
           </li>
 
           <!-- Blog -->
-         <li class="nav-item ">
+          <li class="nav-item ">
             <a class="nav-link" href="/blog/">Blog</a>
-          </li> 
-
+          </li>
           <!-- Other pages -->
           <li class="nav-item ">
             <a class="nav-link" href="/experience/">Experience</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/publications/">Projects<span class="sr-only">(current)</span></a>
+          <li class="nav-item ">
+            <a class="nav-link" href="/publications/">Projects</a>
           </li>
 <!-- CV -->
           <li class="nav-item ">
@@ -158,93 +162,220 @@
 
   <!-- Scrolling Progress Bar -->
   
-  <progress id="progress" value="0">
-    <div class="progress-container">
-      <span class="progress-bar"></span>
-    </div>
-  </progress>
-  
 
   <!-- Content -->
   <div class="container mt-5">
     
-    <!-- page.html -->
-<div class="post">
+    <div class="post">
 
-  <header class="post-header">
-    <h1 class="post-title">Projects</h1>
-    <p class="post-description"></p>
-  </header>
+      <h1>Neural Network Implementation in FPGA using HLS</h1>
 
-<div class="publications">
+<p>Regarding the project, you can choose one of the two ways of implementing a neural network:</p>
 
-<h2 class="bibliography">2023</h2>
-<ol class="bibliography">
-<li>
-<!-- _layouts/bib.html -->
-<div class="row">
-<div class="col-sm-2 abbr"><abbr class="badge badge-publications"><a href="../blog/posts/neural-network-fpga.html"rel="external nofollow noopener" target="_blank">Read More</a></abbr></div>
-<!-- Entry bib key -->
-  <div id="Majidi-personality/taffc" class="col-sm-9">
-    <!-- Title -->
-    <div class="title">Neural Network implementaiton in FPGA using HLS</div>
-    <!-- Author -->
-    <div class="author">
-      
+<ol>
+  <li>You build the entire network in VHDL. In this case you have to make the function of the single node and then you have to instantiate every node of the network and route the signals that connect each node.</li>
+  <li>You follow the programming flow of <a href="https://fastmachinelearning.org/hls4ml/#:~:text=hls4ml%20is%20a%20Python%20package,configured%20for%20your%20use%2Dcase!" target="_blank">HLS4ML</a>. In this case, you start from the network description in Python (the same description used for training), and following the HLS4ML flow, you first obtain the HLS description, and then, using Vivado HLS, you get an IP ready to be instantiated in a VHDL file.</li>
+</ol>
 
-      <em><b>Parsa Majidi</div>
+<p>In the first case, you have to write more code in VHDL. In the second case, you use a tool (HLS4ML). You can check the <a href="https://github.com/fastmachinelearning/hls4ml-tutorial" target="_blank">tutorial</a> to understand if it is feasible or if it's better to tackle the first option.</p>
 
-    <!-- Place -->
-    
-    
-    <div class="periodical">
-      <em>University of Padova, Programmable Harware Device</em>, 2023
-    </div>
-    <div class="periodical">
-      
-    </div>
+<h2>Hardware Requirements</h2>
+<ul>
+  <li>Arty A7-100T Artix-7 FPGA Development Board - PN: XC7A100TCSG324-1</li>
+  <li>A host computer running Windows or GNU/Linux</li>
+  <li>A USB-A to USB-Micro cable to load the bitstream</li>
+</ul>
 
-    <!-- Links/Buttons -->
-    <!--
-    <div class="links">
-      <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-      <a href="https://ieeexplore.ieee.org/document/9463689" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener">HTML</a>
-      <a href="/assets/publications/2021/taffc21-hgy-graph.pdf" class="btn btn-sm z-depth-0" role="button" target="_blank">PDF</a>
-    </div>
-    -->
-    
-    
-    
-
-    <!-- Hidden bibtex block -->
-    <div class="bibtex hidden">
-      <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@article</span><span class="p">{</span><span class="nl">yang-personality/taffc</span><span class="p">,</span>
-  <span class="na">author</span> <span class="p">=</span> <span class="s">{Yang, Hao-Chun and Lee, Chi-Chun}</span><span class="p">,</span>
-  <span class="na">journal</span> <span class="p">=</span> <span class="s">{IEEE Transactions on Affective Computing}</span><span class="p">,</span>
-  <span class="na">title</span> <span class="p">=</span> <span class="s">{A Media-Guided Attentive Graphical Network for Personality Recognition Using Physiology}</span><span class="p">,</span>
-  <span class="na">year</span> <span class="p">=</span> <span class="s">{2021}</span><span class="p">,</span>
-  <span class="na">volume</span> <span class="p">=</span> <span class="s">{}</span><span class="p">,</span>
-  <span class="na">number</span> <span class="p">=</span> <span class="s">{}</span><span class="p">,</span>
-  <span class="na">pages</span> <span class="p">=</span> <span class="s">{1-1}</span><span class="p">,</span>
-  <span class="na">doi</span> <span class="p">=</span> <span class="s">{10.1109/TAFFC.2021.3090040}</span><span class="p">,</span>
-  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{IEEE Transactions on Affective Computing}</span><span class="p">,</span>
-<span class="p">}</span></code></pre></figure>
-    </div>
-  </div>
+<h2>Software Requirements</h2>
+<ul>
+  <li>Vivado® Design Suite 2020.1, download from <a href="https://www.xilinx.com/support/download" target="_blank">here</a></li>
+  <li>The Python environment used for the tutorials is specified in the environment.yml file. Setup with:
+    <div style="margin-top: 10px;">
+    <pre><code>conda env create -f environment.yml
+conda activate neural-network-fpga</code></pre>
 </div>
-</li>
-<li>
-<!-- _layouts/bib.html -->
+  </li>
+</ul>
+
+<h3>Neural Networks</h3>
+<p>Machine learning is a branch of artificial intelligence (AI) where algorithms and data are used to create a system that can perform a certain task. Training improves accuracy with more data. When accurate enough, the system is considered trained and can be deployed elsewhere for inference.</p>
+<p>Neural networks, consisting of multiple compute layers, form the basis of most machine learning tasks. This whitepaper focuses on neural network inference on FPGA devices, illustrating their strengths and weaknesses.</p>
+
+<h3 style="margin-top: 20px;">FPGA Capabilities</h3>
+<p>Neural networks rely on multiply-accumulate calculations simulating neuron interactions. The flexibility of FPGAs allows the handling of various data types and widths, sometimes down to 8-bit integers or even a single bit.</p>
+<p>Comparatively, ASICs, CPUs, GPUs, and FPGAs have distinct advantages. FPGAs can handle latency-critical real-time tasks better due to their configurability, making them ideal when an ASIC does not exist.</p>
+
+<h3 style="margin-top: 20px;">HLS - High Level Synthesis</h3>
+<ul>
+  <li><strong>What is it?</strong> HLS is an automated design process converting an abstract digital system specification into a register-transfer level structure.</li>
+  <li><strong>Why use it?</strong> Productivity, portability, and higher quality from quick design exploration.</li>
+</ul>
+
+<h3 style="margin-top: 20px;">Typical C/C++ Constructs to RTL Mapping</h3>
+<table>
+  <thead>
+    <tr>
+      <th>C/C++ Constructs</th>
+      <th>RTL Components</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Functions</td>
+      <td>Modules</td>
+    </tr>
+    <tr>
+      <td>Arguments</td>
+      <td>Input/output ports</td>
+    </tr>
+    <tr>
+      <td>Operators</td>
+      <td>Functional units</td>
+    </tr>
+    <tr>
+      <td>Scalars</td>
+      <td>Wires or registers</td>
+    </tr>
+    <tr>
+      <td>Arrays</td>
+      <td>Memories</td>
+    </tr>
+    <tr>
+      <td>Control flows</td>
+      <td>Control logic</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top: 20px;">A Typical HLS Flow</h3>
+<p><img src="../../assets/img/HLS_Floww.png" alt="HLS Flow" style="width: 600px; height: 400px;"></p>
+
+<h5 style="margin-top: 20px;">Scheduling</h5>
+<p>Introduces clock boundaries to untimed (or partially timed) input specifications.</p>
+
+<h5 style="margin-top: 20px;">Pipelining</h5>
+<p>A performance optimization in HLS, executing multiple loop iterations concurrently using the same hardware.</p>
+
+<h5 style="margin-top: 20px;">Binding</h5>
+<p>Maps operations, variables, and data transfers to available resources.</p>
+
+<h4 style="margin-top: 20px;">General Workflow to use HLS</h4>
+<ol>
+  <li>Problem definition</li>
+  <li>Define inputs &amp; outputs (HLS top-level function parameters)</li>
+  <li>Code development</li>
+  <li>Test C++ code</li>
+  <li>Synthesis to VHDL, optimizing for performance within hardware limits</li>
+  <li>Test synthesized design</li>
+  <li>Export design, usually as Vivado IP format</li>
+  <li>Implement in Vivado on actual FPGA</li>
+</ol>
+
+<h4 style="margin-top: 20px;">hls4ml</h4>
+<p><img src="../../assets/img/hls4ml_logo.png" alt="hls4ml Logo" style="width: 600px; height: 400px;"></p>
+<p><a href="https://fastmachinelearning.org/hls4ml/#:~:text=hls4ml%20is%20a%20Python%20package,configured%20for%20your%20use%2Dcase!" target="_blank">hls4ml</a> is a Python package enabling machine learning inference in FPGAs by translating open-source machine learning models into HLS.</p>
+
+<h4 style="margin-top: 20px;">ap_ctrl_chain</h4>
+<p>The block-level handshake signals created by the <em>ap_ctrl_chain</em> control protocol for a sequential execution are illustrated below:</p>
+<div style="text-align:center; margin: 30px 0; /* 30px top and bottom, 0px left and right */">
+  <img src="../../assets/img/ksy1542323312067.image" alt="Behavior of ap_ctrl_chain Interface">
+</div>
+
+<h3 style="margin-top: 20px;">Flow of Project</h3>
+<p><img src="../../assets/img/Drawing.png" alt="Project Flow Diagram" style="width: 600px; height: 400px;"></p>
+
+<h3 style="margin-top: 20px;">UART Implementation</h3>
+<h4 style="margin-top: 20px;">UART Transmitter</h4>
+<p><img src="../../assets/img/UART_Transmitter.png" alt="UART Transmitter Diagram" style="width: 600px; height: 400px;"></p>
+
+<h4 style="margin-top: 20px;">UART Receiver</h4>
+<p><img src="../../assets/img/UART_Receiver.png" alt="UART Receiver Diagram" style="width: 600px; height: 400px;"></p>
+
+<h3 style="margin-top: 20px;">FIFO - First Input First Output</h3>
+<p>FIFOs are essential components in FPGA and ASIC designs. They facilitate clock domain crossing, data buffering, and storage.</p>
+<p><img src="../../assets/img/Disegno.png" alt="FIFO Diagram Image" style="width: 600px; height: 400px;"></p>
+
+<h3 style="margin-top: 20px;">Some Expected Errors</h3>
+<p>If you encounter an issue with Jupyter Notebook while setting up the environment with hls4ml-tutorial, try:</p>
+<div style="margin-top: 10px;">
+  <pre><code>pip install --upgrade notebook==6.4.12</code></pre>
+</div>
+
+<h3 style="margin-top: 20px;">References</h3>
+<ul>
+  <li><a href="https://nandland.com/lesson-8-what-is-a-fifo/What%20is%20a%20FIFO%20in%20an%20FPGA" target="_blank">What is a FIFO in an FPGA</a></li>
+  <li><a href="https://docs.xilinx.com/r/en-US/ug1399-vitis-hls/Block-Level-Control-Protocols" target="_blank">Block Level Control Protocols</a></li>
+  <li><a href="https://www.bittware.com/resources/fpga-neural-networks" target="_blank">FPGA Neural Networks</a></li>
+</ul>
+
+</body>
+</html>
+</div>
+  
+
+  
+
+  
+  <div class="tag-category-list">
+    <ul class="p-0 m-0">
+      
+        <li>
+          <i class="fas fa-hashtag fa-sm"></i> <a href="/blog/tag/formatting">formatting</a>
+        </li>
+        
+          <p>•</p>
+        
+      
+        <li>
+          <i class="fas fa-hashtag fa-sm"></i> <a href="/blog/tag/images">images</a>
+        </li>
+        
+          <p>•</p>
+        
+      
+        <li>
+          <i class="fas fa-hashtag fa-sm"></i> <a href="/blog/tag/links">links</a>
+        </li>
+        
+          <p>•</p>
+        
+      
+        <li>
+          <i class="fas fa-hashtag fa-sm"></i> <a href="/blog/tag/math">math</a>
+        </li>
+        
+          <p>•</p>
+        
+      
+        <li>
+          <i class="fas fa-hashtag fa-sm"></i> <a href="/blog/tag/code">code</a>
+        </li>
+        
+      
+      
+        <p>•</p>
+      
+      
+        <li>
+          <i class="fas fa-tag fa-sm"></i> <a href="/blog/category/blockquotes">blockquotes</a>
+        </li>
+        
+      
+    </ul>
+  </div>
+  
+
+  
+
+
+  
+
+</div>
+
+    
+  </div>
 
   <!--  end -->
-  
-  <div class="social">
-    <div class="contact-icons">
-<a href="mailto:%63%68%61%64%79%61%6E%67.%68%63@%67%6D%61%69%6C.%63%6F%6D" title="email"><i class="fas fa-envelope"></i></a>
-<a href="https://www.linkedin.com/in/parsamajidi" title="LinkedIn" rel="external nofollow noopener" target="_blank"><i class="fab fa-linkedin"></i></a>
-<a href="https://github.com/parsamajidi21" title="GitHub" rel="external nofollow noopener" target="_blank"><i class="fab fa-github"></i></a>
-</div>
-  </div>
   
 
   <!-- Footer -->    <footer class="sticky-bottom mt-5">
